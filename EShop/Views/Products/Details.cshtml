@@ -1,0 +1,32 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+    var availablity = (Model.IsAvailable ? "Yes" : "No");
+}
+
+@*<h2 class="text-info">Product Type Details</h2>*@
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-info text-center">Product Details</h2>
+            </div>
+
+            <div class="card-body text-center">
+                <img class="card-img-top imgThumbnailDetails" src="@Model.Photo" asp-append-version="true" />
+                <h4>Product Name: @Model.Name</h4>
+                <h4>Price: @Model.Price</h4>
+                <h4>Type:@Model.ProductType.TypeName</h4>
+                <h4>Special Tag: @Model.SpecialTag.TagName</h4>
+                <h4>Availabilty: @availablity</h4>
+            </div>
+
+            <div class="card-footer text-center">
+                <a asp-controller="Products" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+                <a asp-controller="Products" asp-action="Index" class="btn btn-success">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>

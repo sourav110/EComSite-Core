@@ -1,0 +1,33 @@
+﻿@model ProductType
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<br />
+<h2 class="text-info">Create Product Type</h2>
+<form method="post" asp-controller="ProductTypes" asp-action="Create" class="m-3">
+    <div class="rounded border p-4">
+        <div class="row">
+            <div asp-validation-summary="All" class="text-danger offset-2"></div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-2">
+                <label asp-for="TypeName" class="col-form-label"></label>
+            </div>
+            <div class="col-md-5">
+                <input asp-for="TypeName" class="form-control" />
+                <span asp-validation-for="TypeName" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="offset-2">
+                <button type="submit" class="btn btn-success">Save</button>
+                <a asp-controller="ProductTypes" asp-action="Index" class="btn btn-primary">Cancel</a>
+            </div>
+        </div>
+    </div>
+</form>
+

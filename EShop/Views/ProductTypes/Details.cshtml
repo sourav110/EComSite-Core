@@ -1,0 +1,27 @@
+﻿@model ProductType
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+@*<h2 class="text-info">Product Type Details</h2>*@
+
+<div class="row justify-content-center m-3">
+    <div class="col-sm-8">
+        <div class="card">
+            <div class="card-header">
+                <h2 class="text-info text-center">Product Type Details</h2>
+            </div>
+
+            <div class="card-body text-center">
+                <h4>Id: @Model.Id</h4>
+                <h4>Product Type Name: @Model.TypeName</h4>
+            </div>
+
+            <div class="card-footer text-center">
+                <a asp-controller="ProductTypes" asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-primary">Edit</a>
+                <a asp-controller="ProductTypes" asp-action="Index" class="btn btn-success">Back to List</a>
+            </div>
+        </div>
+    </div>
+</div>

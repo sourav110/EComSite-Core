@@ -1,0 +1,93 @@
+﻿@model Product
+@{
+    ViewData["Title"] = "Create";
+    Layout = "~/Views/Shared/_DashboardLayout.cshtml";
+}
+
+<br />
+<h2 class="text-info">Create New Product</h2>
+<form method="post" asp-controller="Products" asp-action="Create" class="m-3" enctype="multipart/form-data">
+    <div class="rounded border p-4">
+        <div class="row">
+            <div asp-validation-summary="All" class="text-danger offset-2"></div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-2">
+                <label asp-for="Name" class="col-form-label"></label>
+            </div>
+            <div class="col-md-5">
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-2">
+                <label asp-for="Price" class="col-form-label"></label>
+            </div>
+            <div class="col-md-5">
+                <input asp-for="Price" class="form-control" />
+                <span asp-validation-for="Price" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-2">
+                <label asp-for="ProductColor" class="col-form-label"></label>
+            </div>
+            <div class="col-md-5">
+                <input asp-for="ProductColor" class="form-control" />
+                <span asp-validation-for="ProductColor" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-2">
+                <label asp-for="ProductTypeId" class="col-form-label"></label>
+            </div>
+            <div class="col-md-5">
+                <select asp-for="ProductTypeId" class="form-control" asp-items="ViewBag.ProductTypes"></select>
+                <span asp-validation-for="ProductTypeId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-2">
+                <label asp-for="SpecialTagId" class="col-form-label"></label>
+            </div>
+            <div class="col-md-5">
+                <select asp-for="SpecialTagId" class="form-control" asp-items="ViewBag.SpecialTags"></select>
+                <span asp-validation-for="SpecialTagId" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-2">
+                <label asp-for="Photo" class="col-form-label"></label>
+            </div>
+            <div class="col-md-5">
+                <input asp-for="Photo" class="form-control" type="file"/>
+                <span asp-validation-for="Photo" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-md-2">
+                <label asp-for="IsAvailable" class="col-form-label"></label>
+            </div>
+            <div class="col-md-5">
+                <input asp-for="IsAvailable" class="form-control" />
+                <span asp-validation-for="IsAvailable" class="text-danger"></span>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="offset-2">
+                <button type="submit" class="btn btn-success">Save</button>
+                <a asp-controller="Products" asp-action="Index" class="btn btn-primary">Cancel</a>
+            </div>
+        </div>
+    </div>
+</form>
+
